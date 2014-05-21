@@ -1,28 +1,29 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## Create special matrix with the functions set, get, setSolve and GetSolve
 
 makeCacheMatrix <- function(x = matrix()) {
-  m <- NULL
+  s <- NULL
   set <- function(y)
   {
     x <<- y
-    m <<- NULL
+    s <<- NULL
   }
   
   get <- function() x
-  setSolve <- function(solve) m <<- solve
-  getSolve <- function() m
+  setSolve <- function(solve) s <<- solve
+  getSolve <- function() s
   list( set = set, get = get, setmean = setmean, getmean = getmean)
 }
 
 
-## Write a short comment describing this function
+## Function that solves the special matrix previously created
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
   s <- x$getSolve()
+  
   if(!is.null(s))
   {
     message("getting cached data")
